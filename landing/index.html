@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Allure · Trouve ton partenaire de course à Lausanne</title>
+  <meta name="description" content="L'app qui te met en relation avec des coureurs de ton niveau à Lausanne, sur route ou en trail. Inscris-toi pour être prévenu·e du lancement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --ink: #14213d;
+      --muted: #5b6475;
+      --accent: #e4572e;
+      --accent-ink: #ffffff;
+      --lake: #2a6f97;
+      --line: #e3ded3;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 20px 0; }
+    .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+
+    .hero { padding-top: 40px; padding-bottom: 64px; display: grid; gap: 40px; align-items: center; }
+    @media (min-width: 860px) { .hero { grid-template-columns: 1.1fr 0.9fr; padding-top: 64px; padding-bottom: 88px; } }
+    .tag {
+      display: inline-block; font-size: 0.85rem; font-weight: 600;
+      color: var(--lake); background: #e3eef5; padding: 6px 12px; border-radius: 999px;
+    }
+    h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); line-height: 1.08; letter-spacing: -0.03em; margin: 16px 0; }
+    h1 em { font-style: normal; color: var(--accent); }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 34em; }
+
+    form.signup {
+      margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; max-width: 480px;
+    }
+    form.signup input[type=email] {
+      flex: 1 1 220px; font: inherit; padding: 14px 16px;
+      border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink);
+    }
+    form.signup input[type=email]:focus { outline: none; border-color: var(--lake); }
+    button {
+      font: inherit; font-weight: 600; padding: 14px 22px; border: 0; border-radius: 12px;
+      background: var(--accent); color: var(--accent-ink); cursor: pointer;
+    }
+    button:hover { filter: brightness(0.95); }
+    @media (max-width: 480px) { form.signup button { flex: 1 1 100%; } }
+    .fine { font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
+    .hidden { display: none; }
+
+    .card-demo {
+      background: var(--surface); border-radius: 24px; padding: 22px;
+      box-shadow: 0 20px 50px -20px rgba(20, 33, 61, 0.25); max-width: 380px; justify-self: center; width: 100%;
+    }
+    .card-demo h3 { margin: 0 0 14px; font-size: 1rem; color: var(--muted); font-weight: 500; }
+    .run { border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+    .run:last-child { margin-bottom: 0; }
+    .run-top { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; }
+    .run-meta { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    .pill { font-size: 0.75rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+    .pill.green { background: #e2f3e8; color: #23784a; }
+    .pill.blue { background: #e3eef5; color: var(--lake); }
+    .pill.orange { background: #fbe6df; color: #b6401c; }
+
+    section.block { padding: 56px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); letter-spacing: -0.02em; margin: 0 0 28px; }
+    .grid { display: grid; gap: 18px; }
+    @media (min-width: 720px) { .grid.three { grid-template-columns: repeat(3, 1fr); } .grid.two { grid-template-columns: repeat(2, 1fr); } }
+    .feature { background: var(--surface); border-radius: var(--radius); padding: 22px; }
+    .feature .num { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
+    .feature h3 { margin: 8px 0 6px; font-size: 1.1rem; }
+    .feature p { margin: 0; color: var(--muted); }
+
+    .cta { text-align: center; }
+    .cta form.signup { margin-left: auto; margin-right: auto; justify-content: center; }
+    .survey {
+      display: inline-block; margin-top: 18px; color: var(--lake); font-weight: 600;
+    }
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 0.9rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="logo">Allure<span>.</span></div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div>
+        <span class="tag">Bientôt à Lausanne</span>
+        <h1>Ne cours plus <em>seul·e</em>.</h1>
+        <p class="lead">Allure te met en relation avec des coureurs de ton niveau près de chez toi, sur route ou en trail. Même allure, même distance, en duo ou en petit groupe.</p>
+
+        <form class="signup" name="inscription" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="champ-robot">
+          <input type="hidden" name="form-name" value="inscription">
+          <p class="hidden"><label>Ne pas remplir : <input name="champ-robot"></label></p>
+          <input type="email" name="email" placeholder="Ton adresse email" required aria-label="Ton adresse email">
+          <button type="submit">Me prévenir</button>
+        </form>
+        <p class="fine">Gratuit. Un seul email au lancement, rien d'autre.</p>
+      </div>
+
+      <div class="card-demo" aria-hidden="true">
+        <h3>Sorties près de toi cette semaine</h3>
+        <div class="run">
+          <div class="run-top">Quais d'Ouchy · 6 km <span class="pill green">Découverte</span></div>
+          <div class="run-meta">Mardi 18 h 30 · environ 7'15/km · 2 places</div>
+        </div>
+        <div class="run">
+          <div class="run-top">Sauvabelin · 10 km <span class="pill blue">Régulier</span></div>
+          <div class="run-meta">Jeudi 7 h · environ 6'00/km · 3 places</div>
+        </div>
+        <div class="run">
+          <div class="run-top">Jorat · 18 km, 450 m D+ <span class="pill orange">Trail</span></div>
+          <div class="run-meta">Samedi 9 h · rythme confort · 1 place</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="block">
+      <div class="wrap">
+        <h2>Comment ça marche</h2>
+        <div class="grid three">
+          <div class="feature">
+            <div class="num">1</div>
+            <h3>Indique ton niveau</h3>
+            <p>Ton allure, ta distance habituelle, route ou trail, et quand tu es disponible.</p>
+          </div>
+          <div class="feature">
+            <div class="num">2</div>
+            <h3>Trouve une sortie</h3>
+            <p>Rejoins une sortie proposée près de chez toi, ou crée la tienne en quelques secondes.</p>
+          </div>
+          <div class="feature">
+            <div class="num">3</div>
+            <h3>Cours ensemble</h3>
+            <p>Retrouvez-vous au point de départ et courez à votre rythme, sans laisser personne derrière.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <h2>Pensée pour tout le monde</h2>
+        <div class="grid two">
+          <div class="feature">
+            <h3>Débutant·e ? Tu as ta place.</h3>
+            <p>Tu cours avec des gens de ton niveau, jamais avec quelqu'un qui te laisse sur place. Et des coureurs confirmés peuvent t'accompagner si tu le souhaites.</p>
+          </div>
+          <div class="feature">
+            <h3>Coureur confirmé ou trailer ?</h3>
+            <p>Trouve un partenaire pour tes sorties longues, ton fractionné ou tes sorties en montagne, là où courir seul est moins sûr.</p>
+          </div>
+          <div class="feature">
+            <h3>La sécurité d'abord</h3>
+            <p>Profils vérifiés, avis après chaque sortie, petits groupes et sorties entre femmes possibles.</p>
+          </div>
+          <div class="feature">
+            <h3>100 % local</h3>
+            <p>Une app suisse, lancée à Lausanne, avec les parcours que tu connais : Ouchy, Vidy, Sauvabelin, le Jorat, le Lavaux.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block cta">
+      <div class="wrap">
+        <h2>Sois parmi les premiers à courir avec Allure</h2>
+        <form class="signup" name="inscription" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="champ-robot">
+          <input type="hidden" name="form-name" value="inscription">
+          <p class="hidden"><label>Ne pas remplir : <input name="champ-robot"></label></p>
+          <input type="email" name="email" placeholder="Ton adresse email" required aria-label="Ton adresse email">
+          <button type="submit">Me prévenir</button>
+        </form>
+        <!-- Remplacer LIEN_QUESTIONNAIRE par l'adresse du questionnaire Tally ou Google Forms -->
+        <a class="survey" href="LIEN_QUESTIONNAIRE" target="_blank" rel="noopener">Tu as 3 minutes ? Aide-nous en répondant à notre questionnaire →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Allure · Lausanne, Suisse · Tes données restent confidentielles et ne sont jamais revendues.
+  </footer>
+</body>
+</html>
