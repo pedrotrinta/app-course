@@ -4,7 +4,7 @@ App suisse pour trouver un partenaire de course ou de trail de son niveau, lanc�
 
 ## Contenu
 
-- `landing/` : page d'inscription « bientôt disponible » (HTML statique, formulaire Netlify Forms).
+- `landing/` : page d'inscription « bientôt disponible » et questionnaire (HTML statique, formulaires Netlify Forms). Dossier de publication Netlify : `landing`.
 
 ## Prochaines étapes
 

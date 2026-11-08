@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questionnaire · Allure</title>
+  <meta name="description" content="3 minutes pour nous aider à construire l'app qui te trouve un partenaire de course à Lausanne.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#f7f5f0; --surface:#fff; --ink:#14213d; --muted:#5b6475; --accent:#e4572e; --lake:#2a6f97; --line:#e3ded3; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 20px 0; }
+    .logo { font-weight:800; font-size:1.4rem; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; }
+    .logo span { color: var(--accent); }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); letter-spacing:-0.03em; line-height:1.1; margin: 16px 0 10px; }
+    .lead { color: var(--muted); margin: 0 0 28px; }
+    .part { background: var(--surface); border-radius: 18px; padding: 22px 20px; margin-bottom: 18px; }
+    .part h2 { font-size: 1.15rem; margin: 0 0 6px; color: var(--lake); }
+    .intro { background:#e3eef5; border-radius: 12px; padding: 12px 14px; margin: 10px 0 4px; font-style: italic; }
+    fieldset { border: 0; padding: 0; margin: 22px 0 0; }
+    legend { font-weight: 600; margin-bottom: 10px; padding: 0; }
+    .n { display:inline-block; min-width: 1.6em; color: var(--accent); font-weight: 800; }
+    .hint { font-weight: 400; color: var(--muted); font-size: 0.9rem; }
+    .opt { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border: 1.5px solid var(--line); border-radius: 12px; margin-bottom: 8px; cursor: pointer; }
+    .opt:has(input:checked) { border-color: var(--lake); background: #f1f7fb; }
+    .opt input, .scale input { accent-color: var(--lake); width: 18px; height: 18px; margin: 0; flex: none; }
+    .scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .scale label { display:flex; flex-direction: column; align-items:center; gap:6px; padding: 10px 0; border:1.5px solid var(--line); border-radius: 12px; cursor:pointer; font-weight:600; }
+    .scale label:has(input:checked) { border-color: var(--lake); background:#f1f7fb; }
+    .scale-ends { display:flex; justify-content: space-between; color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+    .text { width: 100%; font: inherit; padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); }
+    .text:focus { outline: none; border-color: var(--lake); }
+    button { width: 100%; font: inherit; font-weight: 600; font-size: 1.05rem; padding: 16px; border: 0; border-radius: 12px; background: var(--accent); color: #fff; cursor: pointer; margin: 6px 0 12px; }
+    .fine { text-align:center; color: var(--muted); font-size: 0.85rem; padding-bottom: 48px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header class="wrap"><a class="logo" href="/">Allure<span>.</span></a></header>
+  <main class="wrap">
+    <h1>Aide-nous à construire la bonne app</h1>
+    <p class="lead">15 questions, environ 3 minutes. Tes réponses restent anonymes, sauf si tu choisis de laisser ton email à la fin.</p>
+    <form name="questionnaire" method="POST" action="/merci-questionnaire.html" data-netlify="true" netlify-honeypot="champ-robot">
+      <input type="hidden" name="form-name" value="questionnaire">
+      <p class="hidden"><label>Ne pas remplir : <input name="champ-robot"></label></p>
+<section class="part"><h2>Ton profil</h2>
+<fieldset><legend><span class="n">1</span>Tu as quel âge ?</legend>
+<label class="opt"><input type="radio" name="age" value="Moins de 20 ans" required><span>Moins de 20 ans</span></label>
+<label class="opt"><input type="radio" name="age" value="20 à 29 ans" required><span>20 à 29 ans</span></label>
+<label class="opt"><input type="radio" name="age" value="30 à 39 ans" required><span>30 à 39 ans</span></label>
+<label class="opt"><input type="radio" name="age" value="40 à 49 ans" required><span>40 à 49 ans</span></label>
+<label class="opt"><input type="radio" name="age" value="50 ans et plus" required><span>50 ans et plus</span></label>
+</fieldset>
+<fieldset><legend><span class="n">2</span>Tu es ?</legend>
+<label class="opt"><input type="radio" name="genre" value="Une femme" required><span>Une femme</span></label>
+<label class="opt"><input type="radio" name="genre" value="Un homme" required><span>Un homme</span></label>
+<label class="opt"><input type="radio" name="genre" value="Autre" required><span>Autre</span></label>
+<label class="opt"><input type="radio" name="genre" value="Je préfère ne pas répondre" required><span>Je préfère ne pas répondre</span></label>
+</fieldset>
+<fieldset><legend><span class="n">3</span>Tu habites ou cours où ?</legend>
+<label class="opt"><input type="radio" name="lieu" value="Lausanne" required><span>Lausanne</span></label>
+<label class="opt"><input type="radio" name="lieu" value="Ouest lausannois (Renens, Prilly, Ecublens…)" required><span>Ouest lausannois (Renens, Prilly, Ecublens…)</span></label>
+<label class="opt"><input type="radio" name="lieu" value="Lavaux, Pully, Lutry" required><span>Lavaux, Pully, Lutry</span></label>
+<label class="opt"><input type="radio" name="lieu" value="Nord (Le Mont, Épalinges…)" required><span>Nord (Le Mont, Épalinges…)</span></label>
+<label class="opt"><input type="radio" name="lieu" value="Ailleurs en Suisse romande" required><span>Ailleurs en Suisse romande</span></label>
+</fieldset>
+<fieldset><legend><span class="n">4</span>Depuis combien de temps tu cours ?</legend>
+<label class="opt"><input type="radio" name="anciennete" value="Je n&#x27;ai pas encore commencé" required><span>Je n&#x27;ai pas encore commencé</span></label>
+<label class="opt"><input type="radio" name="anciennete" value="Moins de 6 mois" required><span>Moins de 6 mois</span></label>
+<label class="opt"><input type="radio" name="anciennete" value="6 mois à 2 ans" required><span>6 mois à 2 ans</span></label>
+<label class="opt"><input type="radio" name="anciennete" value="Plus de 2 ans" required><span>Plus de 2 ans</span></label>
+</fieldset>
+<fieldset><legend><span class="n">5</span>Tu cours surtout… <span class="hint">(plusieurs choix possibles)</span></legend>
+<label class="opt"><input type="checkbox" name="terrain[]" value="Sur route ou en ville"><span>Sur route ou en ville</span></label>
+<label class="opt"><input type="checkbox" name="terrain[]" value="En trail ou en forêt"><span>En trail ou en forêt</span></label>
+<label class="opt"><input type="checkbox" name="terrain[]" value="Sur piste"><span>Sur piste</span></label>
+</fieldset>
+<fieldset><legend><span class="n">6</span>Ta sortie habituelle ressemble à quoi ?</legend>
+<label class="opt"><input type="radio" name="distance" value="Moins de 5 km" required><span>Moins de 5 km</span></label>
+<label class="opt"><input type="radio" name="distance" value="5 à 10 km" required><span>5 à 10 km</span></label>
+<label class="opt"><input type="radio" name="distance" value="10 à 20 km" required><span>10 à 20 km</span></label>
+<label class="opt"><input type="radio" name="distance" value="Plus de 20 km" required><span>Plus de 20 km</span></label>
+</fieldset>
+</section>
+<section class="part"><h2>Tes habitudes</h2>
+<fieldset><legend><span class="n">7</span>Aujourd&#x27;hui, tu cours le plus souvent…</legend>
+<label class="opt"><input type="radio" name="avec_qui" value="Seul·e" required><span>Seul·e</span></label>
+<label class="opt"><input type="radio" name="avec_qui" value="Avec un ami ou un proche" required><span>Avec un ami ou un proche</span></label>
+<label class="opt"><input type="radio" name="avec_qui" value="Avec un club ou un groupe" required><span>Avec un club ou un groupe</span></label>
+</fieldset>
+<fieldset><legend><span class="n">8</span>Aimerais-tu courir plus souvent avec quelqu&#x27;un ?</legend>
+<div class="scale"><label><input type="radio" name="envie" value="1" required><span>1</span></label><label><input type="radio" name="envie" value="2" required><span>2</span></label><label><input type="radio" name="envie" value="3" required><span>3</span></label><label><input type="radio" name="envie" value="4" required><span>4</span></label><label><input type="radio" name="envie" value="5" required><span>5</span></label></div><div class="scale-ends"><span>Pas du tout</span><span>Très envie</span></div>
+</fieldset>
+<fieldset><legend><span class="n">9</span>Qu&#x27;est-ce qui t&#x27;empêche de trouver un partenaire aujourd&#x27;hui ? <span class="hint">(plusieurs choix possibles)</span></legend>
+<label class="opt"><input type="checkbox" name="freins[]" value="Je ne connais personne qui court"><span>Je ne connais personne qui court</span></label>
+<label class="opt"><input type="checkbox" name="freins[]" value="Pas le même niveau que mes proches"><span>Pas le même niveau que mes proches</span></label>
+<label class="opt"><input type="checkbox" name="freins[]" value="Horaires incompatibles"><span>Horaires incompatibles</span></label>
+<label class="opt"><input type="checkbox" name="freins[]" value="Les clubs m&#x27;intimident ou ne me conviennent pas"><span>Les clubs m&#x27;intimident ou ne me conviennent pas</span></label>
+<label class="opt"><input type="checkbox" name="freins[]" value="Je suis nouveau ou nouvelle dans la région"><span>Je suis nouveau ou nouvelle dans la région</span></label>
+<label class="opt"><input type="checkbox" name="freins[]" value="Rien, j&#x27;en ai déjà un"><span>Rien, j&#x27;en ai déjà un</span></label>
+</fieldset>
+<fieldset><legend><span class="n">10</span>Qu&#x27;est-ce que courir avec quelqu&#x27;un t&#x27;apporterait ? <span class="hint">(plusieurs choix possibles)</span></legend>
+<label class="opt"><input type="checkbox" name="apports[]" value="Motivation et régularité"><span>Motivation et régularité</span></label>
+<label class="opt"><input type="checkbox" name="apports[]" value="Rencontrer du monde"><span>Rencontrer du monde</span></label>
+<label class="opt"><input type="checkbox" name="apports[]" value="Me sentir plus en sécurité"><span>Me sentir plus en sécurité</span></label>
+<label class="opt"><input type="checkbox" name="apports[]" value="Progresser"><span>Progresser</span></label>
+<label class="opt"><input type="checkbox" name="apports[]" value="Découvrir de nouveaux parcours"><span>Découvrir de nouveaux parcours</span></label>
+</fieldset>
+</section>
+<section class="part"><h2>Ton avis sur l&#x27;app</h2>
+<p class="intro">Imagine une app gratuite, uniquement pour la région lausannoise, qui te propose des sorties avec des coureurs de ton niveau (même allure, même distance), sur route ou en trail, en duo ou en petit groupe.</p>
+<fieldset><legend><span class="n">11</span>Tu l&#x27;utiliserais ?</legend>
+<label class="opt"><input type="radio" name="utiliserais" value="Oui, sûrement" required><span>Oui, sûrement</span></label>
+<label class="opt"><input type="radio" name="utiliserais" value="Peut-être" required><span>Peut-être</span></label>
+<label class="opt"><input type="radio" name="utiliserais" value="Non" required><span>Non</span></label>
+</fieldset>
+<fieldset><legend><span class="n">12</span>Qu&#x27;est-ce qui te ferait hésiter à courir avec quelqu&#x27;un trouvé sur une app ? <span class="hint">(plusieurs choix possibles)</span></legend>
+<label class="opt"><input type="checkbox" name="hesitations[]" value="La sécurité"><span>La sécurité</span></label>
+<label class="opt"><input type="checkbox" name="hesitations[]" value="Peur de ne pas suivre ou de ralentir l&#x27;autre"><span>Peur de ne pas suivre ou de ralentir l&#x27;autre</span></label>
+<label class="opt"><input type="checkbox" name="hesitations[]" value="Peur que ça devienne un site de rencontre"><span>Peur que ça devienne un site de rencontre</span></label>
+<label class="opt"><input type="checkbox" name="hesitations[]" value="Rien de particulier"><span>Rien de particulier</span></label>
+</fieldset>
+<fieldset><legend><span class="n">13</span>Qu&#x27;est-ce qui te rassurerait ? <span class="hint">(plusieurs choix possibles)</span></legend>
+<label class="opt"><input type="checkbox" name="rassurerait[]" value="Profils vérifiés"><span>Profils vérifiés</span></label>
+<label class="opt"><input type="checkbox" name="rassurerait[]" value="Avis des autres coureurs"><span>Avis des autres coureurs</span></label>
+<label class="opt"><input type="checkbox" name="rassurerait[]" value="Sorties en petit groupe plutôt qu&#x27;à deux"><span>Sorties en petit groupe plutôt qu&#x27;à deux</span></label>
+<label class="opt"><input type="checkbox" name="rassurerait[]" value="Sorties entre femmes"><span>Sorties entre femmes</span></label>
+<label class="opt"><input type="checkbox" name="rassurerait[]" value="Partager ma position avec un proche"><span>Partager ma position avec un proche</span></label>
+</fieldset>
+<fieldset><legend><span class="n">14</span>Paierais-tu pour des fonctions en plus (statistiques, filtres avancés, sorties encadrées) ?</legend>
+<label class="opt"><input type="radio" name="prix" value="Non, seulement si c&#x27;est gratuit" required><span>Non, seulement si c&#x27;est gratuit</span></label>
+<label class="opt"><input type="radio" name="prix" value="Jusqu&#x27;à CHF 3 par mois" required><span>Jusqu&#x27;à CHF 3 par mois</span></label>
+<label class="opt"><input type="radio" name="prix" value="CHF 3 à 6 par mois" required><span>CHF 3 à 6 par mois</span></label>
+<label class="opt"><input type="radio" name="prix" value="Plus de CHF 6 par mois" required><span>Plus de CHF 6 par mois</span></label>
+</fieldset>
+</section>
+<section class="part"><h2>Pour finir</h2>
+<fieldset><legend><span class="n">15</span>Veux-tu être prévenu·e au lancement et tester l'app en avant-première ? <span class="hint">(facultatif)</span></legend>
+<input class="text" type="email" name="email" placeholder="Ton adresse email"></fieldset>
+<fieldset><legend>Une idée, une remarque ? <span class="hint">(facultatif)</span></legend>
+<textarea class="text" name="remarque" rows="4"></textarea></fieldset></section>
+      <button type="submit">Envoyer mes réponses</button>
+    </form>
+    <p class="fine">Merci pour ton aide ! Tes données ne sont jamais revendues.</p>
+  </main>
+</body>
+</html>
