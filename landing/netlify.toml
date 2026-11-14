@@ -1,0 +1,3 @@
+# Le dossier "landing" est la base du site : on publie son contenu tel quel.
+[build]
+  publish = "."
